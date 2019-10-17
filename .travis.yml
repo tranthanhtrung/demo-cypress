@@ -25,7 +25,7 @@ defaults: &defaults
     #   ## print all Travis environment variables for debugging
     - $(npm bin)/print-env TRAVIS
     - npm run cy:ci &
-    - npm run cy:run -- --record --key f2746785-abed-42b6-a7b3-dffe1ee60c8d --parallel --group $STAGE_NAME
+    - npm run cy:run -- --env BRAND=fossil,ENV=staging,apiVersion=v2 --spec "cypress/integration/examples/a*.spec.js" --record --key f2746785-abed-42b6-a7b3-dffe1ee60c8d --parallel --group $STAGE_NAME --spec ""
     # after all tests finish running we need
     # to kill all background jobs (like "npm start &")
     - kill $(jobs -p) || true
@@ -47,11 +47,4 @@ jobs:
       env:
         - STAGE_NAME="4x-electron on Travis CI"
       <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
+    
