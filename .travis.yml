@@ -36,9 +36,29 @@ jobs:
     # but we can pass group name via environment variable to Cypress test runner
     - stage: test
       env:
-        - STAGE_NAME="1x-electron on Travis CI"
+        - STAGE_NAME="3x"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="3x"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="3x"
       <<: *defaults
     # run tests in parallel by including several test jobs with same name variable
+    - stage: test
+      env:
+        - STAGE_NAME="4x-electron on Travis CI"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="4x-electron on Travis CI"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="4x-electron on Travis CI"
+      <<: *defaults
     - stage: test
       env:
         - STAGE_NAME="4x-electron on Travis CI"
