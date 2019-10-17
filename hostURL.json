@@ -1,0 +1,10 @@
+{
+	"fossil": {
+		"staging": "https://c-portfolio-int.misfit.com",
+		"product": "b"
+	},
+	"portfolio": {
+		"staging": "c",
+		"product": ""
+	}
+}
